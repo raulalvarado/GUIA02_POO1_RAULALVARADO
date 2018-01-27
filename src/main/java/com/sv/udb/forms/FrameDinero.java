@@ -5,6 +5,9 @@
  */
 package com.sv.udb.forms;
 
+import com.sv.udb.clasesguia.Ej1.ClaseCajero;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Estudiante
@@ -16,6 +19,7 @@ public class FrameDinero extends javax.swing.JFrame {
      */
     public FrameDinero() {
         initComponents();
+
     }
 
     /**
@@ -53,6 +57,7 @@ public class FrameDinero extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,9 +85,28 @@ public class FrameDinero extends javax.swing.JFrame {
 
         jLabel12.setText("$0.25");
 
-        btnCalcular.setText("Calcular");
+        btnCalcular.setText("Agregar");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        btnCalcular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                x(evt);
+            }
+        });
 
         jLabel14.setText("Dinero Total:");
+
+        txtTotal.setEditable(false);
+
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,8 +178,11 @@ public class FrameDinero extends javax.swing.JFrame {
                         .addComponent(btnCalcular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14))
-                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,11 +214,12 @@ public class FrameDinero extends javax.swing.JFrame {
                     .addComponent(txtBille10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMone10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
-                    .addComponent(txtBille20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMone25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtBille20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMone25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -206,13 +234,80 @@ public class FrameDinero extends javax.swing.JFrame {
                     .addComponent(btnCalcular)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    ClaseCajero Cajero = new ClaseCajero();
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+
+        int denomB100 = 100, denomB20 = 20, denomB50 = 50, denomB10 = 10, denomB5 = 5, denomB1 = 1;
+        double denomM1 = 0.01, denomM5 = 0.5, denomM10 = 0.10, denomM25 = 0.25;
+        try {
+            if (!txtBille100.getText().trim().equals("") || !txtBille50.getText().trim().equals("")
+                    || !txtBille20.getText().trim().equals("") || !txtBille10.getText().trim().equals("")
+                    || !txtBille5.getText().trim().equals("") || !txtBille1.getText().trim().equals("")
+                    || !txtMone25.getText().trim().equals("") || !txtMone10.getText().trim().equals("")
+                    || !txtMone5.getText().trim().equals("") || !txtMone1.getText().trim().equals("")) 
+            {
+                
+                Cajero.agregar(Integer.parseInt(txtBille100.getText()), denomB100);
+                Cajero.agregar(Integer.parseInt(txtBille50.getText()), denomB50);
+                Cajero.agregar(Integer.parseInt(txtBille20.getText()), denomB20);
+                Cajero.agregar(Integer.parseInt(txtBille10.getText()), denomB10);
+                Cajero.agregar(Integer.parseInt(txtBille5.getText()), denomB5);
+                Cajero.agregar(Integer.parseInt(txtBille1.getText()), denomB1);
+                Cajero.agregar(Integer.parseInt(txtMone25.getText()), denomM25);
+                Cajero.agregar(Integer.parseInt(txtMone10.getText()), denomM10);
+                Cajero.agregar(Integer.parseInt(txtMone5.getText()), denomM5);
+                Cajero.agregar(Integer.parseInt(txtMone1.getText()), denomM1);
+                
+                clear();
+            }
+            
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Alerta!\nAsegurese de no dejar valores sin agregar o ingresar 0");
+            }
+        } catch (Exception ex) 
+        {
+            JOptionPane.showMessageDialog(this,"Algunos valores no coinciden con el formato requerido");
+            clear();
+        }
+
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void x(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_x
+        // TODO add your handling code here:
+        txtTotal.setText(String.valueOf(Cajero.calcular()));
+    }//GEN-LAST:event_x
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void clear()
+    {
+        txtBille100.setText("");
+        txtBille50.setText("");
+        txtBille20.setText("");
+        txtBille10.setText("");
+        txtBille5.setText("");
+        txtBille1.setText("");
+        
+        txtMone25.setText("");
+        txtMone10.setText("");
+        txtMone5.setText("");
+        txtMone1.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -250,6 +345,7 @@ public class FrameDinero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
