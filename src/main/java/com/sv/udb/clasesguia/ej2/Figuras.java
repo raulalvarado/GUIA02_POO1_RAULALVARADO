@@ -12,17 +12,15 @@ package com.sv.udb.clasesguia.ej2;
 public class Figuras {
 
     public void cubitos() {
-        //imprimiendo los bloques las veces necesarias
-        for (int b = 0; b < 4; b++) {
+        for (int i = 0; i < 4; i++) {
 
-            //imprimiendo  el primer bloque
-            for (int a = 0; a < 3; a++) {
+            for (int q = 0; q < 3; q++) {
                 for (int n = 0; n < 4; n++) {
-                    for (int i = 0; i < 3; i++) {
+                    for (int x = 0; x < 3; x++) {
                         System.out.print("  ");
                     }
-                    for (int i = 0; i < 3; i++) {
-                        System.out.print("* ");
+                    for (int y = 0; y < 3; y++) {
+                        System.out.print("*");
                     }
                     if (n == 3) {
                         System.out.println();
@@ -31,13 +29,12 @@ public class Figuras {
 
             }
 
-            //imprimiendo el segundo bloque
-            for (int a = 0; a < 3; a++) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 for (int n = 0; n < 4; n++) {
-                    for (int i = 0; i < 3; i++) {
-                        System.out.print("* ");
+                    for (int x = 0; x < 3; x++) {
+                        System.out.print("*");
                     }
-                    for (int i = 0; i < 3; i++) {
+                    for (int y = 0; y < 3; y++) {
                         System.out.print("  ");
                     }
                     if (n == 3) {
@@ -53,44 +50,41 @@ public class Figuras {
         System.out.println();
         int cont = 0;
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i3 = 1; i3 <= 10; i3++) {
             System.out.println(" ");
 
-            cont = (2 * i) - 1;
+            cont = (2 * i3) - 1;
 
-            for (int n = 1; n <= (10 - i); n++) {
+            for (int s = 1; s <= (10 - i3); s++) {
                 System.out.print(" ");
             }
 
-            for (int m = i; m <= cont; m++) {
-                System.out.print(m % 10);
+            for (int u = i3; u <= cont; u++) {
+                System.out.print(u % 10);
             }
 
-            for (int o = (cont - 1); o >= i; o--) {
-                System.out.print(o % 10);
+            for (int m = (cont - 1); m >= i3; m--) {
+                System.out.print(m % 10);
             }
         }
     }
 
     public void asteriscos() {
-        //imprimiendo los bloques las veces necesarias
         System.out.println();
-        for (int b = 0; b < 4; b++) {
+        for (int i4 = 0; i4 < 4; i4++) {
 
-            //imprimiendo  el primer bloque
-            for (int n = 0; n < 4; n++) {
+            for (int x = 0; x < 4; x++) {
                 System.out.print("  ");
                 System.out.print("* ");
-                if (n == 3) {
+                if (x == 3) {
                     System.out.println();
                 }
             }
 
-            //imprimiendo el segundo bloque
-            for (int n = 0; n < 4; n++) {
+            for (int y = 0; y < y; y++) {
                 System.out.print("* ");
                 System.out.print("  ");
-                if (n == 3) {
+                if (y == 3) {
                     System.out.println();
                 }
 
