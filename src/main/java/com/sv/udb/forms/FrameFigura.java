@@ -113,7 +113,10 @@ public class FrameFigura extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        this.hide();
+        FrameMenu frmM= new FrameMenu();
+        this.setVisible(false);
+        frmM.setVisible(true);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     Figuras fig= new Figuras();

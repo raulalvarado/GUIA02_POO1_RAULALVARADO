@@ -10,8 +10,31 @@ package com.sv.udb.clasesguia.ej2;
  * @author Raul
  */
 public class Figuras {
+    
+    public void asteriscos() {
+        System.out.println();
+        for (int i4 = 0; i4 < 4; i4++) {
 
-    public void cubitos() {
+            for (int x = 0; x < 4; x++) {
+                System.out.print("  ");
+                System.out.print("* ");
+                if (x == 3) {
+                    System.out.println();
+                }
+            }
+
+            for (int y = 0; y < y; y++) {
+                System.out.print("* ");
+                System.out.print("  ");
+                if (y == 3) {
+                    System.out.println();
+                }
+
+            }
+        }
+    }
+    
+        public void cubitos() {
         for (int i = 0; i < 4; i++) {
 
             for (int q = 0; q < 3; q++) {
@@ -45,8 +68,8 @@ public class Figuras {
             }
         }
     }
-
-    public void piramide() {
+        
+            public void piramide() {
         System.out.println();
         int cont = 0;
 
@@ -65,29 +88,6 @@ public class Figuras {
 
             for (int m = (cont - 1); m >= i3; m--) {
                 System.out.print(m % 10);
-            }
-        }
-    }
-
-    public void asteriscos() {
-        System.out.println();
-        for (int i4 = 0; i4 < 4; i4++) {
-
-            for (int x = 0; x < 4; x++) {
-                System.out.print("  ");
-                System.out.print("* ");
-                if (x == 3) {
-                    System.out.println();
-                }
-            }
-
-            for (int y = 0; y < y; y++) {
-                System.out.print("* ");
-                System.out.print("  ");
-                if (y == 3) {
-                    System.out.println();
-                }
-
             }
         }
     }

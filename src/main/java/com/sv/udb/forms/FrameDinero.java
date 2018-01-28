@@ -291,7 +291,9 @@ public class FrameDinero extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        FrameMenu frmM= new FrameMenu();
         this.setVisible(false);
+        frmM.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void clear()

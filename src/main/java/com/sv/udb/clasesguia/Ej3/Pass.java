@@ -29,7 +29,12 @@ public class Pass {
         
         if(t.equals(clave))
         {
-            
+            return true;
+        }
+        
+        else
+        {
+            return false;
         }
         
     }
