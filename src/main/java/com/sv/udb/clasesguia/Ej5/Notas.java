@@ -23,7 +23,7 @@ public class Notas {
      public void crear(String titulo, String cuerpo) {
         FileWriter flwriter = null;
         try {
-            flwriter = new FileWriter("GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\"+ titulo+".txt");
+            flwriter = new FileWriter("*GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\"+ titulo+".txt");
             BufferedWriter bfwriter = new BufferedWriter(flwriter);
             bfwriter.write(cuerpo);
             bfwriter.close();
@@ -43,7 +43,7 @@ public class Notas {
     }
      
       public void eliminar(String archivo){
-        File file = new File("GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\"+ archivo);
+        File file = new File("*GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\"+ archivo);
         try{
             file.delete();
         }

@@ -24,7 +24,7 @@ public class FrameNotas extends javax.swing.JFrame {
      */
     public FrameNotas() {
         initComponents();
-        txtUrl.setVisible(false);
+        JTextField2.setVisible(false);
         refresh();
     }
 
@@ -40,14 +40,14 @@ public class FrameNotas extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        txtUrl = new javax.swing.JTextField();
+        JTextField2 = new javax.swing.JTextField();
         btnNuevo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtTitulo = new javax.swing.JTextField();
+        JTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblNotas = new javax.swing.JTable();
+        JTable1 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtCuerpo = new javax.swing.JTextArea();
+        JTextArea1 = new javax.swing.JTextArea();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +73,7 @@ public class FrameNotas extends javax.swing.JFrame {
             }
         });
 
-        txtUrl.setEditable(false);
+        JTextField2.setEditable(false);
 
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -84,8 +84,8 @@ public class FrameNotas extends javax.swing.JFrame {
 
         jLabel2.setText("Titulo:");
 
-        tblNotas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        tblNotas.setModel(new javax.swing.table.DefaultTableModel(
+        JTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        JTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -101,17 +101,17 @@ public class FrameNotas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblNotas.setRowHeight(30);
-        tblNotas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTable1.setRowHeight(30);
+        JTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblNotasMouseClicked(evt);
+                JTable1MouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblNotas);
+        jScrollPane2.setViewportView(JTable1);
 
-        txtCuerpo.setColumns(20);
-        txtCuerpo.setRows(5);
-        jScrollPane1.setViewportView(txtCuerpo);
+        JTextArea1.setColumns(20);
+        JTextArea1.setRows(5);
+        jScrollPane1.setViewportView(JTextArea1);
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,9 +144,9 @@ public class FrameNotas extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtUrl)))))
+                                .addComponent(JTextField2)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -155,8 +155,8 @@ public class FrameNotas extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -176,29 +176,29 @@ public class FrameNotas extends javax.swing.JFrame {
 
        Notas N= new Notas();
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(txtTitulo.getText().trim().equals("")){
+        if(JTextField1.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Ingrese un titulo");
         }
         else{
-            N.crear(txtTitulo.getText().trim(), txtCuerpo.getText());
+            N.crear(JTextField1.getText().trim(), JTextArea1.getText());
 //            refresh();
             clear();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        if(txtUrl.getText().equals("")){
+        if(JTextField2.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Seleccione un archivo");
         }
         else{
-            N.crear(txtTitulo.getText(), txtCuerpo.getText());
+            N.crear(JTextField1.getText(), JTextArea1.getText());
             //refresh();
             clear();
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        N.eliminar(txtUrl.getText());
+        N.eliminar(JTextField2.getText());
         //refresh();
         clear();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -207,17 +207,17 @@ public class FrameNotas extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void tblNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNotasMouseClicked
-        int index = tblNotas.getSelectedRow();
-        TableModel model = tblNotas.getModel();
+    private void JTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTable1MouseClicked
+        int index = JTable1.getSelectedRow();
+        TableModel model = JTable1.getModel();
         String direccion = model.getValueAt(index, 0).toString();
         String title = model.getValueAt(index, 1).toString();
         leer(direccion);
-        txtUrl.setText(direccion);
-        txtTitulo.setText(title);
-        txtTitulo.setEditable(false);
+        JTextField2.setText(direccion);
+        JTextField1.setText(title);
+        JTextField1.setEditable(false);
         btnGuardar.setEnabled(false);
-    }//GEN-LAST:event_tblNotasMouseClicked
+    }//GEN-LAST:event_JTable1MouseClicked
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
@@ -226,7 +226,7 @@ public class FrameNotas extends javax.swing.JFrame {
         frmM.setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    String ruta = "GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\";
+    String ruta = "C:\\Users\\Raul\\Desktop\\POO\\GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\";
      public void leer(String titulo) {
 		File file = new File(ruta+titulo);
                 String linea = "";
@@ -237,7 +237,7 @@ public class FrameNotas extends javax.swing.JFrame {
 			while (scanner.hasNextLine()) {
 				linea += scanner.nextLine() + "\n";
 			}
-                        txtCuerpo.setText(linea);
+                        JTextArea1.setText(linea);
 			//se cierra el ojeto scanner
 			scanner.close();
 		} catch (FileNotFoundException e) {
@@ -246,10 +246,10 @@ public class FrameNotas extends javax.swing.JFrame {
 	}
     
      public void refresh(){
-         DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
-        tblNotas.getColumnModel().getColumn(0).setMinWidth(0);
-        tblNotas.getColumnModel().getColumn(0).setMaxWidth(0);
-        tblNotas.getColumnModel().getColumn(0).setResizable(false);
+         DefaultTableModel model = (DefaultTableModel) JTable1.getModel();
+        JTable1.getColumnModel().getColumn(0).setMinWidth(0);
+        JTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+        JTable1.getColumnModel().getColumn(0).setResizable(false);
         while(model.getRowCount()>0) model.removeRow(0);
         File file = new File(ruta);
         File fecha;
@@ -267,10 +267,10 @@ public class FrameNotas extends javax.swing.JFrame {
     }
      
      public void clear(){
-        txtCuerpo.setText("");
-        txtUrl.setText("");
-        txtTitulo.setText("");
-        txtTitulo.setEditable(true);
+        JTextArea1.setText("");
+        JTextField2.setText("");
+        JTextField1.setText("");
+        JTextField1.setEditable(true);
         btnGuardar.setEnabled(true);
     }
     /**
@@ -309,6 +309,10 @@ public class FrameNotas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTable1;
+    private javax.swing.JTextArea JTextArea1;
+    private javax.swing.JTextField JTextField1;
+    private javax.swing.JTextField JTextField2;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -317,9 +321,5 @@ public class FrameNotas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblNotas;
-    private javax.swing.JTextArea txtCuerpo;
-    private javax.swing.JTextField txtTitulo;
-    private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
 }
