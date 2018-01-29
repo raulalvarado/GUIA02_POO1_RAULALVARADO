@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class FramePIN extends javax.swing.JFrame {
     
     Pass act= new Pass();
-    String cadena="";
+    String cadena;
 
     /**
      * Creates new form FramePIN
@@ -46,8 +46,8 @@ public class FramePIN extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        txtNum = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        txtNum = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -139,14 +139,14 @@ public class FramePIN extends javax.swing.JFrame {
             }
         });
 
-        txtNum.setEditable(false);
-
         jButton13.setText("Regresar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
+
+        txtNum.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,9 +176,11 @@ public class FramePIN extends javax.swing.JFrame {
                                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(16, 16, 16)
                                     .addComponent(jButton9)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtNum, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(5, 5, 5)
+                                    .addComponent(txtNum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton1)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButton2)
@@ -192,9 +194,9 @@ public class FramePIN extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -225,74 +227,64 @@ public class FramePIN extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton1.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"1");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton2.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"2");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton4.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"3");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton3.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"4");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton6.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"5");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton5.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"6");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton7.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"7");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton8.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"8");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton9.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        cadena+=this.act.num(jButton10.getText());
-        txtNum.setText(cadena);
+        txtNum.setText(txtNum.getText()+"0");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        txtNum.setText(null);
+        txtNum.setText("");
     }//GEN-LAST:event_jButton11ActionPerformed
        int left=0;
     Pass tries= new Pass();
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         
-        if(tries.validar(cadena)==true)
+        if(tries.validar(txtNum.getText())==true)
         {
             JOptionPane.showMessageDialog(this,"Acceso correcto");
         }
@@ -308,7 +300,7 @@ public class FramePIN extends javax.swing.JFrame {
             {
                 int Tleft= 3-left;
                 JOptionPane.showMessageDialog(this,"Le quedan "+Tleft+" intentos");
-                txtNum.setText(null);
+                txtNum.setText("");
             }
 
             
@@ -378,6 +370,6 @@ public class FramePIN extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField txtNum;
+    private javax.swing.JLabel txtNum;
     // End of variables declaration//GEN-END:variables
 }

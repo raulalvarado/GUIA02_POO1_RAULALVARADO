@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 package com.sv.udb.forms;
+import java.util.Date;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import com.sv.udb.clasesguia.Ej5.Notas;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -16,6 +24,8 @@ public class FrameNotas extends javax.swing.JFrame {
      */
     public FrameNotas() {
         initComponents();
+        txtUrl.setVisible(false);
+        refresh();
     }
 
     /**
@@ -27,22 +37,242 @@ public class FrameNotas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        txtUrl = new javax.swing.JTextField();
+        btnNuevo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblNotas = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtCuerpo = new javax.swing.JTextArea();
+        btnRegresar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        txtUrl.setEditable(false);
+
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Titulo:");
+
+        tblNotas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tblNotas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Direccion", "Titulo", "Fecha"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblNotas.setRowHeight(30);
+        tblNotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblNotasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblNotas);
+
+        txtCuerpo.setColumns(20);
+        txtCuerpo.setRows(5);
+        jScrollPane1.setViewportView(txtCuerpo);
+
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUrl)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnRegresar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+       Notas N= new Notas();
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if(txtTitulo.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Ingrese un titulo");
+        }
+        else{
+            N.crear(txtTitulo.getText().trim(), txtCuerpo.getText());
+//            refresh();
+            clear();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        if(txtUrl.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Seleccione un archivo");
+        }
+        else{
+            N.crear(txtTitulo.getText(), txtCuerpo.getText());
+            //refresh();
+            clear();
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        N.eliminar(txtUrl.getText());
+        //refresh();
+        clear();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        clear();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void tblNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNotasMouseClicked
+        int index = tblNotas.getSelectedRow();
+        TableModel model = tblNotas.getModel();
+        String direccion = model.getValueAt(index, 0).toString();
+        String title = model.getValueAt(index, 1).toString();
+        leer(direccion);
+        txtUrl.setText(direccion);
+        txtTitulo.setText(title);
+        txtTitulo.setEditable(false);
+        btnGuardar.setEnabled(false);
+    }//GEN-LAST:event_tblNotasMouseClicked
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        FrameMenu frmM= new FrameMenu();
+        this.setVisible(false);
+        frmM.setVisible(true);
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    String ruta = "C:\\Users\\Raul\\Desktop\\POO\\GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\";
+     public void leer(String titulo) {
+		File file = new File(ruta+titulo);
+                String linea = "";
+		Scanner scanner;
+		try {
+			//se pasa el flujo al objeto scanner
+			scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				linea += scanner.nextLine() + "\n";
+			}
+                        txtCuerpo.setText(linea);
+			//se cierra el ojeto scanner
+			scanner.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+    
+     public void refresh(){
+         DefaultTableModel model = (DefaultTableModel) tblNotas.getModel();
+        tblNotas.getColumnModel().getColumn(0).setMinWidth(0);
+        tblNotas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tblNotas.getColumnModel().getColumn(0).setResizable(false);
+        while(model.getRowCount()>0) model.removeRow(0);
+        File file = new File(ruta);
+        File fecha;
+        Date d ;
+        for(String texto : file.list()){
+            //obtiene la ultima fecha de modificacion
+            fecha = new File(ruta+texto);
+            d = new Date(fecha.lastModified());
+            //obtiene el nombre del texto sin el txt
+            Scanner delimitar = new Scanner(texto);
+            delimitar.useDelimiter("\\s*.txt\\s*");
+            //imprime los valores en la tabla
+            model.addRow(new Object[]{texto,delimitar.next(),d});
+        }
+    }
+     
+     public void clear(){
+        txtCuerpo.setText("");
+        txtUrl.setText("");
+        txtTitulo.setText("");
+        txtTitulo.setEditable(true);
+        btnGuardar.setEnabled(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -79,5 +309,17 @@ public class FrameNotas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblNotas;
+    private javax.swing.JTextArea txtCuerpo;
+    private javax.swing.JTextField txtTitulo;
+    private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
 }
