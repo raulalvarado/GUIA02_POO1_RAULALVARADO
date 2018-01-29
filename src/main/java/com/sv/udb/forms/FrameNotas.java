@@ -226,7 +226,7 @@ public class FrameNotas extends javax.swing.JFrame {
         frmM.setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    String ruta = "C:\\Users\\Raul\\Desktop\\POO\\GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\";
+    String ruta = "GUIA02_POO1_RAULALVARADO\\src\\main\\resources\\";
      public void leer(String titulo) {
 		File file = new File(ruta+titulo);
                 String linea = "";
